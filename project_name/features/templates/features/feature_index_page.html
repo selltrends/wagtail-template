@@ -1,0 +1,14 @@
+{% verbatim %}
+{% extends "base_page.html" %}
+
+{% load static wagtailcore_tags wagtailimages_tags %}
+
+{% block body_class %}template-features{% endblock %}
+{% block extra_css %}{% endblock %}
+
+{% block content %}
+
+    {% include_block page.body %}
+
+{% endblock %}
+{% endverbatim %}
