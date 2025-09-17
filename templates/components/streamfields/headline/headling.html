@@ -1,0 +1,31 @@
+{% verbatim %}
+<div class="headline{% if value.dark_background or dark_background %} headline--dark-theme{% endif %}">
+    <div class="headline__grid grid">
+        {% if value.icon %}
+            {% include "components/icon/icon.html" with icon=value.icon classes="headline__icon" %}
+        {% endif %}
+        <div class="headline__inner">
+            <hgroup>
+                <h2 class="headline__heading heading-one">{{ value.heading }}</h2>
+
+                {% if value.sub_heading %}
+                    <p class="headline__subheading intro-big">{{ value.sub_heading }}</p>
+                {% endif %}
+            </hgroup>
+            {% if value.intro %}
+                <p class="headline__intro">{{ value.intro }}</p>
+            {% endif %}
+
+            {% if value.cta %}
+                <div class="headline__button-wrap">
+                    {% if value.dark_background or dark_background %}
+                        {% include "components/buttons/button.html" with arrow=True url=value.cta.url title=value.cta.text classes="headline__button button--dark" %}
+                    {% else %}
+                        {% include "components/buttons/button.html" with arrow=True url=value.cta.url title=value.cta.text classes="headline__button" %}
+                    {% endif %}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endverbatim %}
