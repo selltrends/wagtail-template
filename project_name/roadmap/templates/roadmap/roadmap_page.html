@@ -1,0 +1,84 @@
+{% verbatim %}
+{% extends "base_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+{% block content %}
+
+    {% include "components/hero/hero.html" with value=page classes="hero--small-margin" %}
+
+    <div class="grid milestones">
+        <div class="milestones__border"></div>
+
+        {% for milestone in milestones %}
+            <section class="milestone" id="{{ milestone.display_title|slugify }}" aria-labelledby="{{ milestone.display_title|slugify }}-heading">
+
+                <div class="milestone__header">
+                    {% include "components/icon/icon.html" with icon="flag" classes="icon--relative icon--primary" %}
+
+                    <h2 class="heading-three milestone__heading" id="{{ milestone.display_title|slugify }}-heading">
+                        <a class="milestone__heading-link" href="#{{ milestone.display_title|slugify }}">{{ milestone.display_title }}</a>
+                        {% if milestone.display_subtitle %}
+                            <span class="milestone__heading-subtitle">{{ milestone.display_subtitle }}</span>
+                        {% endif %}
+                    </h2>
+                </div>
+
+                <div class="milestone__items grid">
+                    {% for item in milestone.items.all %}
+                        <div class="milestone-item">
+                            <div>
+                                <a class="milestone-item__external-link" href="{{ item.url }}" target="_blank" rel="noreferrer">
+                                    <h3 class="milestone-item__heading teaser-intro" id="milestone-item-{{ item.number }}">
+                                        <span>
+                                            {{ item.title }}
+                                        </span>
+                                        {% include "components/icon/icon.html" with icon="arrow-up-right-from-square" variant="simple" %}
+                                    </h3>
+                                </a>
+                                <div class="milestone-item__labels">
+                                    <span class="u-sr-only">Labels</span>
+                                    {% for label in item.labels_list %}
+                                        <span class="milestone-item__label tag-label">{{ label }}</span>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% if item.needs_sponsorship or item.sponsored %}
+                                {% comment %}
+                                    Fallback to item.url (GitHub URL) to avoid crashing
+                                    if the sponsorship_page foreign key is unset.
+                                {% endcomment %}
+                                {% pageurl page.sponsorship_page item.url as sponsor_url %}
+                                <a
+                                    class="milestone-item__sponsor-label mini-meta"
+                                    aria-describedby="milestone-item-{{ item.number }}"
+                                    href="{% firstof item.sponsorship_url sponsor_url %}"
+                                    {% if item.sponsorship_url or not page.sponsorship_page %}
+                                        target="_blank" rel="noreferrer"
+                                    {% endif %}
+                                >
+                                    {% if item.needs_sponsorship %}
+                                        Sponsor this
+                                        {% include "components/icon/icon.html" with icon="arrow" variant="simple" %}
+                                    {% elif item.sponsored %}
+                                        Sponsored
+                                        {% include "components/icon/icon.html" with icon="heart" variant="simple" %}
+                                    {% endif %}
+                                </a>
+                            {% endif %}
+                        </div>
+                    {% endfor %}
+                </div>
+
+            </section>
+        {% endfor %}
+    </div>
+
+    <div class="grid milestones">
+        <div class="milestones__fine-print fine-print">
+            {{ page.fine_print|richtext  }}
+        </div>
+    </div>
+
+    {% include_block page.body %}
+{% endblock %}
+{% endverbatim %}

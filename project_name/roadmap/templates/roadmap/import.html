@@ -1,0 +1,42 @@
+{% verbatim %}
+{% extends "wagtailadmin/base.html" %}
+{% load wagtailadmin_tags %}
+
+{% block titletag %}GitHub Roadmap{% endblock %}
+
+{% block content %}
+    {% include "wagtailadmin/shared/header.html" with title='GitHub Roadmap' icon='crosshairs' %}
+
+    <div class="nice-padding">
+        <h2>Import</h2>
+        <p>
+            Import roadmap data from
+            <a href="https://github.com/wagtail/roadmap">wagtail/roadmap</a>.
+            Roadmap data is retrieved from the repository's
+            <a href="https://github.com/wagtail/roadmap/milestones">Milestones</a>
+            (not the Projects feature). Only milestones that are in an "open" state
+            will be imported.
+        </p>
+        <p>
+            The import will copy the milestones as
+            <a href="{% url 'wagtailsnippets_roadmap_milestone:list' %}">
+                Roadmap Milestone
+            </a>
+            snippets. If instances of the milestones or issues already exist,
+            they will be updated with the latest data from GitHub. Custom data
+            such as the sponsorship URL will be preserved.
+        </p>
+        <p>
+            An access token is necessary to use GitHub's GraphQL API. To create an access token, see
+            <a href="https://github.com/settings/tokens">Personal access tokens</a>.
+            The token does not need to have any permissions configured.
+        </p>
+        <form method="post">
+            {% csrf_token %}
+            {% include "wagtailadmin/shared/field.html" with field=form.github_token %}
+            <button type="submit" class="button button-longrunning">Import</button>
+        </form>
+    </div>
+
+{% endblock %}
+{% endverbatim %}
