@@ -16,6 +16,18 @@
 {% endblock meta_tags %}
 
 {% block header %}
+    {% if '/wagtail-space' not in request.path %}
+    <!-- This content will NOT show on any URL containing /wagtail-space -->
+        {% if '/wagtail-space' not in request.path %}
+            <div class="space-banner">
+                <div class="banner-text">Join us for</div>
+                <img src="{% static 'images/WagtailSpace2025Logo.png' %}"
+                     alt="Registration banner"
+                     class="banner-image">
+                <a href="/wagtail-space-2025" class="banner-button">Learn more</a>
+            </div>
+        {% endif %}
+    {% endif %}
     {% include "navigation/header.html" %}
 {% endblock header %}
 
