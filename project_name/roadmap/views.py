@@ -59,7 +59,9 @@ graphql_query = {
             versions: milestones(
               first: 20
               states: [OPEN]
+              {% verbatim %}
               orderBy: {{field: DUE_DATE, direction: DESC}}
+              {% endverbatim %}
               query: "v"
             ) {milestones_query}
           }}
