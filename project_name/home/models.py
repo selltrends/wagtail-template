@@ -17,16 +17,16 @@ class HomePage(SocialMediaMixin, CrossPageMixin, Page):
     template = "pages/home/home_page.html"
     parent_page_types = ["wagtailcore.Page"]
     subpage_types = [
-        #"blog.BlogIndexPage",
+        "blog.BlogIndexPage",
         "home.ContentPage",
-        #"showcase.ShowcasePage",
-        #"features.FeatureIndexPage",
-        #"newsletter.NewsletterIndexPage",
-        #"standardpage.StandardPage",
+        "showcase.ShowcasePage",
+        "features.FeatureIndexPage",
+        "newsletter.NewsletterIndexPage",
+        "standardpage.StandardPage",
         #"packages.PackagesPage",
-        #"roadmap.RoadmapPage",
-        #"services.ServicesPage",
-        #"wagtailspace.WagtailSpaceIndexPage",
+        "roadmap.RoadmapPage",
+        "services.ServicesPage",
+        "wagtailspace.WagtailSpaceIndexPage",
     ]
 
     # ----------------- Hero -----------------
