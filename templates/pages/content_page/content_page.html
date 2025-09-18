@@ -1,0 +1,12 @@
+{% verbatim %}
+{% extends "base_page.html" %}
+{% load wagtailcore_tags wagtailimages_tags static %}
+
+{% block content %}
+    {% if page.has_hero %}
+        {% include "components/hero/hero.html" with value=page %}
+    {% endif %}
+
+    {% include_block page.body %}
+{% endblock %}
+{% endverbatim %}

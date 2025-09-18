@@ -1,0 +1,11 @@
+{% verbatim %}
+<div class="grid">
+    <a class="cta{% if classes %} {{ classes }}{% endif %}" href="{{ value.cta.url }}">
+        <div class="cta__content">
+            <h2 class="cta__title teaser-heading">{{ value.cta.text }}</h2>
+            <p class="cta__description teaser-intro">{{ value.description }}</p>
+        </div>
+        <svg class="arrow arrow--large" aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+    </a>
+</div>
+{% endverbatim %}
