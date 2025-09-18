@@ -36,7 +36,7 @@ class RoadmapPage(Page, SocialMediaMixin):
         features=["bold", "italic", "link"],
     )
     sponsorship_page = models.ForeignKey(
-        "core.ContentPage",
+        "home.ContentPage",
         on_delete=models.SET_NULL,
         null=True,
         blank=True,
