@@ -54,7 +54,7 @@ INSTALLED_APPS = [
     "{{ project_name }}.navigation",
     "{{ project_name }}.news",
     "{{ project_name }}.search",
-    "{{ project_name }}.standardpages",
+    "{{ project_name }}.standardpage",
     "{{ project_name }}.users",
     "{{ project_name }}.utils",
     "wagtail_localize",
