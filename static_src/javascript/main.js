@@ -1,6 +1,6 @@
 import '../sass/main.scss';
 
-import './components/theme-detect';
+import ThemeToggle from "./components/theme-toggle";
 import GetStartedMenu from './components/get-started-menu';
 import SiteSearchDesktop from './components/site-search-desktop';
 import SiteSearchMobile from './components/site-search-mobile';
@@ -23,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Remove no-js class if JS is enabled
     document.documentElement.classList.remove('no-js');
 
+    initComponent(ThemeToggle);
     initComponent(CookieMessage);
     initComponent(SiteWideAlert);
     initComponent(GetStartedMenu);
