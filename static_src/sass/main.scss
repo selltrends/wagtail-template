@@ -2,6 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Import daisyUI as a plugin */
+@plugin "daisyui";
+
 @layer base {
     // TODO load fonts 
     // @font-face {
