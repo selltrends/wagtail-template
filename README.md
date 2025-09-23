@@ -1,68 +1,95 @@
-# Wagtail News Template
+# Wagtail Template + (Vite + Tailwindcss + Daisyui + Flowbite + Aphine + Storybook)
 
-This project template is designed for creating [Wagtail](https://wagtail.org) builds quickly, intended for developers to bootstrap their Wagtail site development using `wagtail start --template=`. The template comes with pre-defined pages, blocks, functionalities, and fixtures to streamline the initial setup process.
+This project template is designed for creating [Wagtail](https://wagtail.org) builds quickly, intended for developers to bootstrap their Wagtail site development using `wagtail start --template=`. The template comes with pre-defined pages, blocks, functionalities, and fixtures to streamline the initial setup process. 
 
-## Getting Started
+## Wagtail Developing Set
 
-1. **Check that you have an appropriate version of Python 3** You want to make sure that you have a [compatible version](https://docs.wagtail.org/en/stable/releases/upgrading.html#compatible-django-python-versions) installed:
-
-   ```sh
-   python --version
-   # Or:
-   python3 --version
-   # **On Windows** (cmd.exe, with the Python Launcher for Windows):
-   py --version
-   ```
-
-2. **Create a Virtual Environment**: Set up a virtual environment to isolate your project dependencies. These instructions are for GNU/Linux or MacOS, but there are [other operating systems in the Wagtail docs](https://docs.wagtail.org/en/stable/getting_started/tutorial.html#create-and-activate-a-virtual-environment).
+1. **Create a Virtual Environment**: Set up a virtual environment to isolate your project dependencies. These instructions are for GNU/Linux or MacOS, but there are [other operating systems in the Wagtail docs](https://docs.wagtail.org/en/stable/getting_started/tutorial.html#create-and-activate-a-virtual-environment).
 
    ```bash
    python -m venv .venv
    source .venv/bin/activate
    ```
 
-3. **Navigate to Project Directory**: Move into the newly created project directory.
+2. **Navigate to Project Directory**: Move into the newly created project directory.
 
    ```bash
    cd myproject
    ```
 
-4. **Install Wagtail**: Install the Wagtail CMS package using pip.
+3. **Install Wagtail**: Install the Wagtail CMS package using pip.
 
    ```bash
    pip install wagtail
    ```
 
-5. **Initialize Project**: Use the `wagtail start` command to create a new project based on the Wagtail Starter Kit template.
+4. **Initialize Project**: Use the `wagtail start` command to create a new project based on the Wagtail Starter Kit template.
 
    ```bash
    wagtail start --template=https://github.com/selltrends/wagtail-template/archive/refs/heads/main.zip myproject .
    ```
 
-6. **Install Project Dependencies**: Install the project's dependencies into a virtual environment.
+5. **Install Project Dependencies**: Install the project's dependencies into a virtual environment.
 
    ```bash
    pip install -r requirements.txt
    ```
 
+## Load Fixture Datat
+
 All commands from now on should be run from inside the virtual environment.
 
-8. **Load Dummy Data**: Load in some dummy data to populate the site with some content.
+1. **Load Dummy Data**: Load in some dummy data to populate the site with some content.
 
    ```bash
    make load-data
    ```
 
-9. **Start the Server**: Start the Django development server.
+2. **Start the Server**: Start the Django development server.
 
    ```bash
    make start
    ```
 
-10. **Access the Site and Admin**: Once the server is running, you can view the site at `localhost:8000` and access the Wagtail admin interface at `localhost:8000/admin`. Log in with the default credentials provided by :
+3. **Access the Site and Admin**: Once the server is running, you can view the site at `localhost:8000` and access the Wagtail admin interface at `localhost:8000/admin`. Log in with the default credentials provided by :
 
     - Username: admin
     - Password: password
+
+
+### Local Developing Precess
+
+1.  **Original Code Zip**: Zip the source template codes for new project.
+
+   ```bash
+   cd .. 
+   zip -r template.zip wagtail-tempalte
+   ```
+
+
+
+2.  **Local Install Test**: Use the `wagtail start` command to create a new project based on the local Wagtail Starter Kit template.
+
+   ```bash
+   mkdir myproject && cd $_
+   python3 -m venv .venv
+   sourece .venv/bin/activate
+   pip install --upgrade pip
+   pip install wagtail
+   wagtail start --template=./template.zip myproject .
+   python manage.py makemigrations
+   python manage.py migrate
+   python manage.py createcachetable
+   python manage.py createsuperuser
+   python manage.py runserver
+   ```
+
+3. **Frontend Developing Process**:
+   ```bash
+   npm install 
+   npm run dev
+   ```
+
 
 ### Deploying
 
