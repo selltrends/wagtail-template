@@ -40,7 +40,7 @@ if "CSRF_TRUSTED_ORIGINS" in os.environ:
 INSTALLED_APPS = [
     "{{ project_name }}.wagtailspace",
     "{{ project_name }}.sitewide_alert",
-     "{{ project_name }}.showcase",
+    "{{ project_name }}.showcase",
     "{{ project_name }}.services",
     "{{ project_name }}.roadmap",
     "{{ project_name }}.newsletter",

@@ -8,11 +8,13 @@ from wagtail import urls as wagtail_urls
 from wagtail.documents import urls as wagtaildocs_urls
 
 from {{ project_name }}.search import views as search_views
+from {{ project_name }}.sitewide_alert import urls as sitewide_alert_urls
 
 urlpatterns = [
     path("django-admin/", admin.site.urls),
     path("admin/", include(wagtailadmin_urls)),
     path("documents/", include(wagtaildocs_urls)),
+    path("sitewide_alert/", include(sitewide_alert_urls, namespace="sitewide_alert")),
 ]
 
 
