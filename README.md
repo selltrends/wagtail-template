@@ -73,10 +73,11 @@ All commands from now on should be run from inside the virtual environment.
    ```bash
    mkdir myproject && cd $_
    python3 -m venv .venv
-   sourece .venv/bin/activate
+   source .venv/bin/activate
    pip install --upgrade pip
    pip install wagtail
-   wagtail start --template=./template.zip myproject .
+   wagtail start --template=../template.zip myproject .
+   pip install -r requirements.txt
    python manage.py makemigrations
    python manage.py migrate
    python manage.py createcachetable
@@ -87,7 +88,7 @@ All commands from now on should be run from inside the virtual environment.
 3. **Frontend Developing Process**:
    ```bash
    npm install 
-   npm run dev
+   npm run start
    ```
 
 
