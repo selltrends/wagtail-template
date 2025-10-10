@@ -79,7 +79,7 @@ All commands from now on should be run from inside the virtual environment.
    wagtail start --template=../template.zip myproject .
    pip install -r requirements.txt
    python manage.py makemigrations
-   python manage.py migrate
+   python manage.py migrate --run-syncdb 
    python manage.py createcachetable
    python manage.py createsuperuser
    python manage.py runserver
