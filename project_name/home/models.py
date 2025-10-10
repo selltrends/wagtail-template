@@ -23,7 +23,7 @@ class HomePage(SocialMediaMixin, CrossPageMixin, Page):
         "features.FeatureIndexPage",
         "newsletter.NewsletterIndexPage",
         "standardpage.StandardPage",
-        #"packages.PackagesPage",
+        "forms.FormPage",
         "roadmap.RoadmapPage",
         "services.ServicesPage",
         "wagtailspace.WagtailSpaceIndexPage",
