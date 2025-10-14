@@ -1,52 +1,14 @@
 {% verbatim %}
+
 {% load navigation_tags %}
 
 <header class="app__header header">
-    {% include "components/skip-link/skip-link.html" %}
-
-    <div class="header__identity">
-
-    </div>
-
-    <div class="header__actions">
-
-
-
-        <div class="header__menu-toggle">
-            <button class="burger" data-mobile-menu-toggle aria-haspopup="true" aria-expanded="false" aria-label="Mobile menu toggle">
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-                <span class="burger__line"></span>
-            </button>
-        </div>
-
-        <div class="header__nav header__nav--mobile" data-mobile-menu>
+    <div class="">
+        <div class="main-navigation">
             {% main_navigation %}
-            {% if settings.navigation.NavigationSettings.get_started_menu %}
-                <a href="/get-started/" class="header__button header__button--get-started button">
-                    Get started
-                </a>
-            {% endif %}
         </div>
-
-        {% if settings.navigation.NavigationSettings.get_started_menu %}
-            <button class="header__button header__button--get-started button" data-get-started>
-                Get started
-                <svg class="header__get-started-icon" aria-hidden="true">
-                    <use xlink:href="#chevron"></use>
-                </svg>
-            </button>
-        {% endif %}
-
-        {# Mobile search #}
-        {% include "includes/search-form.html" with classes="search--mobile is-hidden u-mobile-only" data_attrs="data-search-mobile" form_id="mobile-search-form" input_id="search-input-mobile" %}
-
     </div>
 </header>
 
-{% get_started_menu %}
 
-{# Desktop search #}
-{% include "includes/search-modal.html" with input_id="search-input-desktop" %}
 {% endverbatim %}
