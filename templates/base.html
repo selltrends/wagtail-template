@@ -23,9 +23,6 @@
             <meta name="viewport" content="width=device-width, initial-scale=1" />
         {% endblock %}
 
-        {# Global stylesheets #}
-        <link rel="stylesheet" type="text/css" href="{% static 'css/main.css' %}">
-
         {# Global iconography #}
         {% include "includes/svg_sprites.html" %}
 
@@ -50,8 +47,6 @@
         {% block footer %}{% endblock footer %}
 
         
-        <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
-
         {% block extra_js %}
         
         {% endblock %}
