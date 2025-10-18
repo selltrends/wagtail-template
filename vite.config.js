@@ -12,6 +12,10 @@ export default defineConfig({
                     src: resolve(__dirname, 'static/images/**/*'),
                     dest: 'images',
                 },
+                {
+                    src: resolve(__dirname, 'static/fonts/**/*'),
+                    dest: 'fonts',
+                },
             ],
         }),
     ],
