@@ -7,7 +7,6 @@ __pycache__
 /venv/
 /.venv/
 /tmp/
-/static/
 /.vagrant/
 /Vagrantfile.local
 node_modules/
