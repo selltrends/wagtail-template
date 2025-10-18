@@ -88,7 +88,8 @@ All commands from now on should be run from inside the virtual environment.
 3. **Frontend Developing Process**:
    ```bash
    npm install 
-   npm run start
+   npm run dev
+   npm run build
    ```
 
 

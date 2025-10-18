@@ -1,5 +1,5 @@
 {% verbatim %}
-{% load static wagtailcore_tags wagtailuserbar i18n %}
+{% load static wagtailcore_tags wagtailuserbar i18n django_vite %}
 
 {% get_current_language as LANGUAGE_CODE %}
 
@@ -7,6 +7,9 @@
 <html lang="{{ LANGUAGE_CODE }}">
     <head>
         <meta charset="utf-8" />
+
+        {% vite_hmr_client %}
+        {% vite_asset 'static/js/main.js' %}
 
         {% if request.in_preview_panel %}
             <base target="_blank">
