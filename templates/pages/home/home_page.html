@@ -4,35 +4,11 @@
 
 {% block content %}
     <div class="site-padding site-container">
+        {% include "components/hero/hero.html" with value=page classes="hero--home" %}
         <div class="relative max-w-[872px] pt-32 tall:pt-40 pb-40 md:pb-60">
             <h1 class="font-serif4 [word-spacing:-6px] font-bold text-7xl lg:text-10xl">
                 {{ page.title }}
             </h1>
-
-
-            <div>
-                <h2>
-                    *******Daisy UI Demo*******
-                </h2>
-                <button class="btn btn-secondary">Secondary</button>
-                <label class="swap swap-flip text-9xl">
-                    <!-- this hidden checkbox controls the state -->
-                    <input type="checkbox" />
-
-                    <div class="swap-on">😈</div>
-                    <div class="swap-off">😇</div>
-                </label>
-
-                <div
-                    class="radial-progress bg-primary text-primary-content border-primary border-4"
-                    style="--value:70;"
-                    role="progressbar">
-                    70%
-                </div>
-                <h2>
-                    *******End Daisy UI Demo*******
-                </h2>
-            </div>
             
             <div class="
                 absolute
