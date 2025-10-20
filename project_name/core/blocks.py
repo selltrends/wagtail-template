@@ -362,7 +362,7 @@ class TeaserBlock(blocks.StructBlock):
         return struct_value
 
     def get_preview_value(self):
-        from wagtailio.blog.models import BlogPage
+        from {{ project_name }}.blog.models import BlogPage
 
         return self.normalize({"page": BlogPage.objects.last()})
 
