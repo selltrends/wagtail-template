@@ -1,5 +1,5 @@
 {% verbatim %}
-{% load wagtailcore_tags wagtail_cache %}
+{% load wagtailcore_tags wagtailsettings_tags wagtail_cache %}
 {% wagtail_site as current_site %}
 {% wagtailcache 900 primarynav current_site.pk is_pattern_library %}
     <div class="navbar bg-base-100 shadow-sm">
@@ -25,7 +25,7 @@
                 {% endfor %}
             </ul>
             </div>
-            <a class="btn btn-primary text-xl">DaisyUI</a>
+            <a class="btn btn-primary text-xl">{{ current_site.site_name|default:"Site name" }}</a>
         </div>
         <div class="navbar-center hidden lg:flex">
             <ul class="menu menu-horizontal px-1">
@@ -55,6 +55,7 @@
             </button>
         </div>
     </div>
+</div>
 
 {% endwagtailcache %}
 {% endverbatim %}
