@@ -1,5 +1,11 @@
 {% verbatim %}
-<div class="">
-    {{ self }}
+<div class="collapse bg-base-100 border border-base-300">
+    <input type="radio" name="my-accordion-1" checked="checked" />
+    {% if value.title %}
+        <div class="collapse-title font-semibold">{{ value.title }}</div>
+    {% endif %}
+    {% if value.content %}
+        <div class="collapse-content text-sm">{{ value.content }}</div>
+    {% endif %}
 </div>
 {% endverbatim %}
