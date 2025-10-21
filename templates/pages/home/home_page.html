@@ -4,32 +4,45 @@
 
 {% block content %}
     <div class="site-padding site-container">
-        {% include "components/hero/hero.html" with value=page classes="hero--home" %}
+        
+        <div class="hero bg-base-200 min-h-screen" style="background-image: url(https://img.daisyui.com/images/stock/photo-1507358522600-9f71e620c44e.webp);">
+            <div class="hero-content text-neutral-content flex-col lg:flex-row-reverse">
+                <img
+                src="https://img.daisyui.com/images/stock/photo-1635805737707-575885ab0820.webp"
+                class="max-w-sm rounded-lg shadow-2xl"
+                />
+                <div>
+                <h1 class="text-5xl font-bold">{{ page.heading }}</h1>
+                <div class="py-6">
+                    {{ page.intro|richtext }}
+                </div>
+                <button class="btn btn-primary btn-xl">Get Started</button>
+                <button class="btn btn-accent btn-xl">Features</button>
+                </div>
+            </div>
+        </div>
+
+
+        {% if page.call_to_action %}
+        <div class="grid">
+            <div class="button-align button-align--home">
+                {% for block in page.call_to_action %}
+                    {% with block.value as cta %}
+                        {% include "components/buttons/button.html" with arrow=True url=cta.url title=cta.text classes="button-align__item" %}
+                    {% endwith %}
+                {% endfor %}
+            </div>
+        </div>
+        {% endif %}
+
+
+
         <div class="relative max-w-[872px] pt-32 tall:pt-40 pb-40 md:pb-60">
             <h1 class="font-serif4 [word-spacing:-6px] font-bold text-7xl lg:text-10xl">
                 {{ page.title }}
             </h1>
-            
-            <div class="
-                absolute
-                overflow-hidden
-                z-[-1]
-                right-[-78px]
-                top-[98px]
-                w-52
-                h-52
-                md:right-[-131px]
-                md:top-[24px]
-                tall:md:top-[131px]
-                md:w-64
-                md:h-64
-                rotate-[32deg]
-                border-[3px]
-                rounded-3xl
-                border-dashed
-                border-mackerel-200"
-            >
-            </div>
+          
+            <div class=""></div>
             <div class="max-w-[636px] pt-5 rich-text">
                 {{ page.introduction|richtext }}
             </div>
@@ -38,7 +51,10 @@
                     {% include "components/button.html" with title=page.hero_cta.0.value.get_title url=page.hero_cta.0.value.get_url %}
                 </div>
             {% endif %}
+            </div>
         </div>
+
+
     </div>
 
     {% include_block page.body %}
