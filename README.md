@@ -62,7 +62,7 @@ All commands from now on should be run from inside the virtual environment.
 
    ```bash
    cd .. 
-   zip -r template.zip wagtail-tempalte
+   zip -r template.zip wagtail-template
    ```
 
 
