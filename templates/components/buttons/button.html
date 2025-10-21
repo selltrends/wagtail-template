@@ -1,10 +1,8 @@
 {% verbatim %}
 {% if url %}
-    <a role="button" href="{{ url }}" class="btn btn-active {% if classes %}{{ classes }}{% endif %}">
-        <p class="button__text">{{ title }}</p>
-        {% if arrow %}
-            <svg class="arrow" aria-hidden="true"><use xlink:href="#arrow"></use></svg>
-        {% endif %}
-    </a>
+<a href="{{ url }}" class="btn btn-primary inline-flex items-center justify-center px-4 py-2.5 text-base font-medium text-center text-gray-900 border border-gray-300 rounded-lg hover:bg-gray-100 focus:ring-4 focus:ring-gray-100 dark:text-white dark:border-gray-600 dark:hover:bg-gray-700 dark:focus:ring-gray-600">
+    <svg class="arrow" viewBox="0 0 20 20" aria-hidden="true"><use xlink:href="#arrow"></use></svg>
+    <p class="">{{ title }}</p>
+</a> 
 {% endif %}
 {% endverbatim %}
