@@ -1,18 +1,19 @@
 {% verbatim %}
 {% load wagtailcore_tags %}
-<div class="get-started grid">
+<ul class="list bg-base-100 rounded-box shadow-md">
     {% if value.heading %}
-        <h2 class="get-started__heading heading-one">{{ value.heading }}</h2>
+    <li class="p-4 pb-2 text-xs opacity-60 tracking-wide">
+        <h2 class="">{{ value.heading }}</h2>
+    </li>
     {% endif %}
 
     {% if value.items %}
-        <ul class="get-started__list">
+        <ul class="list bg-base-100 rounded-box shadow-md">
             {% for item in value.items %}
-                <li class="get-started__list-item">
+                <li class="list-row">
                     {% include_block item %}
                 </li>
             {% endfor %}
         </ul>
     {% endif %}
-</div>
 {% endverbatim %}

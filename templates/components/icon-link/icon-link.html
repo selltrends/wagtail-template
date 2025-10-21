@@ -1,17 +1,20 @@
 {% verbatim %}
 {% load wagtailcore_tags %}
 {# note: the prefered way of generating page urls is via pageurl so as to pass the request and therefore take advantage of the site-level URL information #}
-<a class="icon-link" href="{% if value.url %}{{ value.url }}{% elif value.page %}{% pageurl value.page %}{% elif value.external_link %}{{ value.external_link }}{% endif %}">
-    {% include "components/icon/icon.html" with icon=value.icon classes="icon-link__svg" %}
-
-    <div class="icon-link__content">
-        <hgroup>
-            <h3 class="icon-link__heading teaser-heading">{{ value.heading }}</h3>
-
-            <p class="icon-link__subheading heading-four">{{ value.subheading }}</p>
-        </hgroup>
-
-        <p class="icon-link__description mini-meta">{{ value.description }}</p>
-    </div>
-</a>
+<div>{% include "components/icon/icon.html" with icon=value.icon classes="icon-link__svg" %}</div>
+<div>
+    <div>{{ value.heading }}</div>
+    <div class="text-xs uppercase font-semibold opacity-60">{{ value.subheading }}</div>
+</div>
+<p class="list-col-wrap text-xs">
+    <a class="icon-link" href="{% if value.url %}{{ value.url }}{% elif value.page %}{% pageurl value.page %}{% elif value.external_link %}{{ value.external_link }}{% endif %}">
+        {{ value.description }}
+    </a>
+</p>
+<button class="btn btn-square btn-ghost">
+    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M6 3L20 12 6 21 6 3z"></path></g></svg>
+</button>
+<button class="btn btn-square btn-ghost">
+    <svg class="size-[1.2em]" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><g stroke-linejoin="round" stroke-linecap="round" stroke-width="2" fill="none" stroke="currentColor"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path></g></svg>
+</button>
 {% endverbatim %}
